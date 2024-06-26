@@ -10,7 +10,7 @@ const Skill = ({
   color,
 }: TSkill) => {
   return (
-    <div className='shadow-main  p-4 rounded-md space-y-3 grid grid-cols-12 gap-5'>
+    <div className='shadow-main border  p-4 rounded-md space-y-3 grid grid-cols-12 gap-5'>
       <div className='col-span-4 flex items-center justify-center'>
         <Icon size={65} color={color} />
       </div>

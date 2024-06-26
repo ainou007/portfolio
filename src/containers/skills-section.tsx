@@ -2,7 +2,6 @@ import { Skills } from '@/app/constants/skills';
 import Author from '@/components/author';
 import Section from '@/components/section';
 import Skill from '@/components/skill';
-import { Separator } from '@/components/ui/separator';
 import React from 'react';
 import { BiWrench } from 'react-icons/bi';
 

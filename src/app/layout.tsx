@@ -4,6 +4,7 @@ import './globals.css';
 import Header from '@/components/header';
 import { cn } from '@/lib/utils';
 import { ContextProvider } from '@/components/context';
+import { ThemeProvider } from '@/components/theme-provider';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -20,11 +21,16 @@ export default function RootLayout({
   return (
     <html lang='en' className='scroll-smooth '>
       <body className={cn(inter.className, 'text-muted-foreground relative ')}>
-        <ContextProvider>
-          <Header />
-
-          {children}
-        </ContextProvider>
+        <ThemeProvider
+          attribute='class'
+          defaultTheme='system'
+          enableSystem
+          disableTransitionOnChange>
+          <ContextProvider>
+            <Header />
+            {children}
+          </ContextProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

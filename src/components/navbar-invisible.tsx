@@ -8,6 +8,8 @@ import {
   MdKeyboardDoubleArrowRight,
   MdOutlineFileDownload,
 } from 'react-icons/md';
+import Image from 'next/image';
+import { ModeToggle } from '@/components/mode-toggle';
 
 const NavbarInvisible = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,21 +19,25 @@ const NavbarInvisible = () => {
         <div className='flex items-center   py-2 container  justify-between'>
           <HoverCard open={isOpen}>
             <HoverCardTrigger>
-              <img
+              <Image
                 onClick={() => {
                   setIsOpen(!isOpen);
                 }}
-                className='cursor-pointer size-10 rounded-md'
-                src='avatar.jpg'
+                className='cursor-pointer rounded-md'
+                src='/avatar.jpg'
                 alt=''
+                width={40}
+                height={40}
               />
             </HoverCardTrigger>
             <HoverCardContent className='w-96 max-w-[90%]  p-0 text-muted-foreground rounded-lg overflow-hidden'>
               <div className='bg-cover h-32 bg-center relative'>
-                <img
-                  src='avatar.jpg'
+                <Image
+                  src='/avatar.jpg'
                   className='size-28 absolute -bottom-10 left-5 rounded-md'
                   alt=''
+                  width={112}
+                  height={112}
                 />
               </div>
               <div className='mt-10 p-5'>
@@ -80,7 +86,7 @@ const NavbarInvisible = () => {
               );
             })}
           </nav>
-          <div>them toggle</div>
+          <ModeToggle />
         </div>
       </div>
     </div>

@@ -9,7 +9,9 @@ type TSectionProps = {
 
 const Section = ({ children, id, className = '' }: TSectionProps) => {
   return (
-    <section className={cn('shadow-main rounded-sm  p-5', className)} id={id}>
+    <section
+      className={cn('shadow-main border rounded-sm  p-5', className)}
+      id={id}>
       {children}
     </section>
   );

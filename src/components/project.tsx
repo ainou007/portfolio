@@ -33,7 +33,7 @@ const Project = ({ direction }: TProjectPropps) => {
             'col-span-5',
             direction == 'left' ? 'order-first' : '-order-first'
           )}>
-          <div className='mb-2 h-64 overflow-hidden'>
+          <div className='mb-2 h-48 overflow-hidden'>
             <img
               className='rounded size-full object-cover bg-center'
               src={images[activeImage]}
@@ -43,7 +43,13 @@ const Project = ({ direction }: TProjectPropps) => {
           <div className='grid grid-cols-4 gap-3 '>
             {images.map((image, index) => {
               return (
-                <div>
+                <div
+                  className={cn(
+                    'rounded  overflow-hidden',
+                    image == images[activeImage] ?
+                      'ring-2 ring-primary ring-offset-2'
+                    : ''
+                  )}>
                   <img
                     onClick={() => {
                       changeAtivceImage(index);
@@ -51,7 +57,7 @@ const Project = ({ direction }: TProjectPropps) => {
                     key={index}
                     src={image}
                     alt=''
-                    className='rounded object-cover size-full'
+                    className='rounded object-cover size-full cursor-pointer hover:scale-150 hover:rotate-3 transition-all ease-in-out duration-700 '
                   />
                 </div>
               );
@@ -59,10 +65,11 @@ const Project = ({ direction }: TProjectPropps) => {
           </div>
         </div>
         <div className='col-span-7 '>
-          <p className='text-primary mb-3 uppercase font-semibold text-xl'>
+          <h3 className='text-primary font-semibold text-xl mb-3 leading-none  '>
             Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          </p>
-          <p className=''>
+          </h3>
+
+          <p className='text-sm'>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate
             molestiae aliquam vel doloribus laudantium cupiditate
           </p>
