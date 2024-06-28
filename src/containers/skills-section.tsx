@@ -1,14 +1,14 @@
-import { Skills } from '@/app/constants/skills';
 import Author from '@/components/author';
 import Section from '@/components/section';
 import Skill from '@/components/skill';
-import React from 'react';
+import { getSkills } from '@/lib/skills';
 import { BiWrench } from 'react-icons/bi';
 
-const SkillsSection = () => {
+const SkillsSection = async () => {
+  const skillsList = await getSkills();
+
   return (
     <Section id='skills'>
-      {' '}
       <Author
         name='Skills'
         description='My Technical Proficiency'
@@ -20,9 +20,9 @@ const SkillsSection = () => {
         consequatur ipsam exercitationem minus iusto magnam cum nihil? Ut
         voluptates voluptatibus impedit.
       </p>
-      <div className='grid grid-cols-2 gap-8 mt-10'>
-        {Skills.map((skill, index) => {
-          return <Skill key={index} {...skill} />;
+      <div className='grid grid-cols-1 md:grid-cols-2 gap-2 mt-10'>
+        {skillsList.map((skill) => {
+          return <Skill key={skill._id} {...skill} />;
         })}
       </div>
     </Section>

@@ -6,6 +6,7 @@ export default defineType({
   type: 'document',
   title: 'Projects',
   fields: [
+    // label field
     defineField({
       name: 'label',
       type: 'string',
@@ -18,6 +19,8 @@ export default defineType({
         ];
       },
     }),
+
+    // description field
     defineField({
       name: 'description',
       title: 'Description',
@@ -28,26 +31,34 @@ export default defineType({
         Rule.max(1000).error('Description must be less than or equal 1000'),
       ],
     }),
+
+    // gallery field
     defineField({
-      name: 'images',
+      name: 'gallery',
       type: 'array',
-      title: 'Image',
+      title: 'gallery',
       of: [{ type: 'image' }],
     }),
+
+    // tags field
     defineField({
       name: 'tags',
       type: 'array',
       title: 'Tags',
       of: [{ type: 'string' }],
     }),
+
+    //demo link field
     defineField({
-      name: 'demolink',
+      name: 'demoLink',
       type: 'url',
       title: 'Demo Link',
       validation: (Rule) =>
         // @ts-ignore
         Rule.regex(urlRegex).optional(),
     }),
+
+    // repo link field
     defineField({
       name: 'repoLink',
       type: 'url',
@@ -56,12 +67,16 @@ export default defineType({
         // @ts-ignore
         Rule.regex(urlRegex).optional(),
     }),
+
+    // isCompleted field
     defineField({
-      name: 'publishedAt',
-      type: 'date',
-      title: 'Published at',
-      validation: (Rule) => Rule.max(new Date().toDateString()),
+      name: 'isCompleted',
+      type: 'boolean',
+      title: 'Is Completed',
+      initialValue: false,
     }),
+
+    // isResponsive field
     defineField({
       name: 'isResponsive',
       type: 'boolean',

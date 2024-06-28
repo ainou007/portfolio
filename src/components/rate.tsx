@@ -3,8 +3,6 @@ import { FaRegStarHalfStroke } from 'react-icons/fa6';
 
 const Rate = ({ purcent = 50 }: { purcent: number }) => {
   const stars = (purcent / 100) * 5;
-  console.log('stars: ', stars);
-
   const starsArr = Array.from({ length: stars }, (_, i) => i + 1);
   const halfStarsArr =
     Number(stars) === stars && stars % 1 !== 0 ?

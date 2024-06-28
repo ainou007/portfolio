@@ -1,27 +1,23 @@
 'use client';
-import { navbarContext } from '@/components/context';
-import { useContext, useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 export const useVisibiliy = () => {
   const elementRef = useRef(null);
-  // const [isVisible, setIsVisible] = useState(false);
-  const { toggleVisibility } = useContext(navbarContext);
+  const [isVisible, setIsVisible] = useState(false);
+
   useEffect(() => {
     const handleScroll = () => {
       if (elementRef.current) {
         // @ts-ignore
-        // FIXME:
         const rect = elementRef.current.getBoundingClientRect();
         const isVisible =
-          rect.top >= 120 &&
+          rect.top >= 0 &&
           rect.left >= 0 &&
           rect.bottom <=
             (window.innerHeight || document.documentElement.clientHeight) &&
           rect.right <=
             (window.innerWidth || document.documentElement.clientWidth);
-        // setIsVisible(isVisible);
-        console.log('ok');
-        toggleVisibility(isVisible);
+        setIsVisible(isVisible);
       }
     };
 
@@ -33,7 +29,6 @@ export const useVisibiliy = () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
-  return {
-    elementRef,
-  };
+
+  return { elementRef, isVisible };
 };

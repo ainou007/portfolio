@@ -1,31 +1,47 @@
+'use client';
 import Rate from './rate';
-import { TSkill } from '@/app/constants/skills';
+import Image from 'next/image';
+import { urlForImage } from '../../sanity/lib/image';
+import { TSkill } from '@/lib/types';
 
 const Skill = ({
-  purcent,
+  _id,
   label,
+  purcent,
+  image,
   description,
-  projects,
-  icon: Icon,
-  color,
+  microsysteme,
 }: TSkill) => {
   return (
-    <div className='shadow-main border  p-4 rounded-md space-y-3 grid grid-cols-12 gap-5'>
-      <div className='col-span-4 flex items-center justify-center'>
-        <Icon size={65} color={color} />
+    <div className='shadow-main border p-4 rounded-md space-y-2 grid grid-cols-12'>
+      <div className='col-span-full xs:col-span-3 md:col-span-full xl:col-span-3  flex items-center justify-center'>
+        <Image
+          src={urlForImage(image)}
+          height={0}
+          width={1000}
+          style={{ height: '60px', width: 'auto' }}
+          alt=''
+        />
       </div>
-      <div className='col-span-8 '>
-        <p className='font-bold text-sm mb-1 '>
-          {label} ({projects} projects)
-        </p>
+      <div className='col-span-full xs:col-span-9  md:col-span-full xl:col-span-9 '>
+        <h3 className='font-bold text-sm mb-1 '>{label}</h3>
         <Rate purcent={purcent} />
-
-        <p className='text-sm my-1.5'>{description.message}</p>
-        <div className='flex gap-1.5'>
-          {description.micro.map((micro, index) => {
-            const { icon: Icon, color } = micro;
-            return <Icon key={index} size={20} color={color} />;
-          })}
+        <p className='text-sm my-1.5'>{description}</p>
+        <div className='flex gap-x-1 mt-3'>
+          {microsysteme &&
+            microsysteme.length > 0 &&
+            microsysteme.map((micro, index) => {
+              return (
+                <Image
+                  key={index}
+                  alt=''
+                  src={urlForImage(micro)}
+                  height={0}
+                  width={150}
+                  className='size-5'
+                />
+              );
+            })}
         </div>
       </div>
     </div>

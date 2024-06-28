@@ -1,4 +1,3 @@
-'use client';
 import { socialMedia } from '@/app/constants/socialMedia';
 import Author from '@/components/author';
 import Section from '@/components/section';
@@ -18,10 +17,13 @@ export const AboutSection = () => {
         icon={BiUserPin}
       />
       <p className='mb-5'>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem
-        similique quibusdam corporis in doloribus consequatur pariatur enim.
-        Voluptas exercitationem vel consequatur consequuntur numquam, saepe rem
-        minus sint architecto quam suscipit?
+        I am a junior front-end developer skilled in creating engaging and
+        dynamic web applications. My expertise includes HTML, CSS, and
+        JavaScript for structuring and styling web content. I use TypeScript for
+        enhanced code quality and maintainability. Proficient in ReactJS, I
+        build efficient and reusable UI components. Additionally, I utilize
+        Tailwind CSS for streamlined styling and Shadcn for robust component
+        libraries.
       </p>
       <ul className='flex gap-2 text-2xl'>
         {socialMedia.map((item, index) => {
@@ -35,7 +37,7 @@ export const AboutSection = () => {
           );
         })}
       </ul>
-      <div className='flex gap-2 mt-5'>
+      <div className='flex flex-col xs:flex-row gap-2 mt-5'>
         <Button>
           My works <MdKeyboardDoubleArrowRight />
         </Button>

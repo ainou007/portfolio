@@ -1,61 +1,48 @@
 import { navLinks } from '@/app/constants/nav-links';
 import { technologies } from '@/app/constants/technologies';
 import { ModeToggle } from '@/components/mode-toggle';
+import { cn } from '@/lib/utils';
 import { ShieldCheck } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { SiTestinglibrary } from 'react-icons/si';
-const Navbar = () => {
+const Navbar = ({ isVisible }: { isVisible: boolean }) => {
   return (
-    <div className='relative h-96 container'>
-      <div className={'absolute -bottom-44 '}>
-        <div className='flex items-end gap-8 mb-4'>
+    // className=''
+    <div className='-mt-28'>
+      <div className='container'>
+        <div className='flex items-end gap-5'>
           <Image
-            width={208}
-            height={208}
-            className='size-52 rounded-md '
-            src='/avatar.jpg'
+            className='rounded-md '
+            src={'/avatar.jpg'}
             alt=''
+            width={180}
+            height={180}
           />
-          <nav className='mb-2 hidden md:flex gap-8'>
+          <nav className='hidden mb-1 md:flex gap-4 '>
             {navLinks.map((link, index) => {
-              const { label, icon: Icon } = link;
+              const { label, href, icon: Icon } = link;
               return (
                 <Link
+                  href={href}
                   key={index}
-                  className='flex items-center justify-center gap-1.5 border-b-2 border-b-transparent  py-2'
-                  href=''>
-                  <Icon size={15} /> {label}
+                  className='hover:text-primary flex items-center gap-1'>
+                  <Icon /> {label}
                 </Link>
               );
             })}
-            <Link
-              className='flex items-center justify-center gap-1 textpri border-b-2 text-primary font-semibold border-primary py-2'
-              href=''>
-              <SiTestinglibrary size={15} /> active link
-            </Link>
-            <ModeToggle />
           </nav>
+          <ModeToggle />
         </div>
-        <div>
-          <h1 className='text-2xl md:text-3xl font-semibold flex items-center gap-1 text-gray-700'>
-            Abdelmounim AINOU
-            <ShieldCheck size={30} className='text-blue-400' />
-          </h1>
-          <div className=''>
-            {' '}
-            <p className='font-light text-lg'>@fontend-developer </p>
-            <ul className='flex items-center gap-1 text-2xl'>
-              {technologies.map((tech, index) => {
-                const { icon: Icon, color } = tech;
-                return (
-                  <li key={index}>
-                    <Icon color={color} />
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
+        <h1 className='text-gray-800 text-xl xs:text-2xl sm:text-3xl font-semibold mt-2.5 flex items-center gap-2'>
+          Abdelmounim AINOU <ShieldCheck color='#4d71b5' />
+        </h1>
+        <p className='text-lg'>@front-end developer</p>
+        <div className='flex gap-1 mt-1'>
+          {' '}
+          {technologies.map((tech, index) => {
+            const { icon: Icon, color } = tech;
+            return <Icon size={22} key={index} color={color} />;
+          })}
         </div>
       </div>
     </div>

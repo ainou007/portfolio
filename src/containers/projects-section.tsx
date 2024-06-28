@@ -2,10 +2,12 @@ import Author from '@/components/author';
 import Project from '@/components/project';
 import Section from '@/components/section';
 import { Separator } from '@/components/ui/separator';
+import { getProjects } from '@/lib/projects';
 import React from 'react';
 import { BiSave } from 'react-icons/bi';
 
-const ProjectsSection = () => {
+const ProjectsSection = async () => {
+  const projectsList = await getProjects();
   return (
     <Section id='projects'>
       <Author
@@ -21,11 +23,21 @@ const ProjectsSection = () => {
       </p>
 
       <div className='mt-10'>
-        <Project direction='left' />
-        <Separator className='my-14' />
-        {/* <Separator />
-        <Project /> */}
-        <Project direction='right' />
+        {projectsList &&
+          projectsList.map((project, index) => {
+            return (
+              <>
+                <Project
+                  key={project._id}
+                  direction={(index + 1) % 2 == 0 ? 'right' : 'left'}
+                  {...project}
+                />
+                {index + 1 != projectsList.length && (
+                  <Separator className='my-8' />
+                )}
+              </>
+            );
+          })}
       </div>
     </Section>
   );

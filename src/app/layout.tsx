@@ -1,9 +1,8 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
-import Header from '@/components/header';
 import { cn } from '@/lib/utils';
-import { ContextProvider } from '@/components/context';
+import Header from '@/components/header';
 import { ThemeProvider } from '@/components/theme-provider';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -19,18 +18,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='en' className='scroll-smooth '>
-      <body className={cn(inter.className, 'text-muted-foreground relative ')}>
-        <ThemeProvider
+    <html lang='en'>
+      <body className={cn(inter.className, 'text-muted-foreground relative')}>
+        {/* <ContextProvider> </ContextProvider> */}
+        {/* <ThemeProvider
           attribute='class'
           defaultTheme='system'
           enableSystem
           disableTransitionOnChange>
-          <ContextProvider>
-            <Header />
-            {children}
-          </ContextProvider>
-        </ThemeProvider>
+        </ThemeProvider> */}
+
+        <Header />
+        {children}
       </body>
     </html>
   );
