@@ -1,4 +1,5 @@
 import Footer from '@/components/footer';
+import Header from '@/components/header';
 import { Button } from '@/components/ui/button';
 import { AboutSection } from '@/containers/about-section';
 import ProjectsSection from '@/containers/projects-section';
@@ -8,6 +9,8 @@ import { FaEnvelope } from 'react-icons/fa';
 export default function Home() {
   return (
     <>
+      <Header />
+
       <div className='container gap-4 grid grid-cols-12 mt-8 '>
         <main className='col-span-full lg:col-span-8 xl:col-span-10 space-y-5 '>
           <AboutSection />

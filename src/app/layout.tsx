@@ -18,18 +18,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='en'>
+    <html lang='en' className='scroll-smooth'>
       <body className={cn(inter.className, 'text-muted-foreground relative')}>
-        {/* <ContextProvider> </ContextProvider> */}
-        {/* <ThemeProvider
+        <ThemeProvider
           attribute='class'
           defaultTheme='system'
           enableSystem
           disableTransitionOnChange>
-        </ThemeProvider> */}
-
-        <Header />
-        {children}
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

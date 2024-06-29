@@ -1,34 +1,33 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
 
-export const useVisibiliy = () => {
-  const elementRef = useRef(null);
+export const useVisibiliy = (margin: number = 0) => {
   const [isVisible, setIsVisible] = useState(false);
+  const targetRef = useRef(null);
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (elementRef.current) {
-        // @ts-ignore
-        const rect = elementRef.current.getBoundingClientRect();
-        const isVisible =
-          rect.top >= 0 &&
-          rect.left >= 0 &&
-          rect.bottom <=
-            (window.innerHeight || document.documentElement.clientHeight) &&
-          rect.right <=
-            (window.innerWidth || document.documentElement.clientWidth);
-        setIsVisible(isVisible);
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting);
+      },
+      {
+        root: null, // viewport
+        rootMargin: `${margin}px 0px 0px 0px`, // no margin
+        threshold: 0.5, // 50% of target visible
       }
-    };
+    );
 
-    window.addEventListener('scroll', handleScroll);
-    // Initial check on component mount
-    handleScroll();
+    if (targetRef.current) {
+      observer.observe(targetRef.current);
+    }
 
+    // Clean up the observer
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      if (targetRef.current) {
+        observer.unobserve(targetRef.current);
+      }
     };
   }, []);
 
-  return { elementRef, isVisible };
+  return { targetRef, isVisible };
 };
