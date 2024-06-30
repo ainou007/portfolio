@@ -1,9 +1,12 @@
 import Footer from '@/components/footer';
 import Header from '@/components/header';
-import { Button } from '@/components/ui/button';
+import { Button, buttonVariants } from '@/components/ui/button';
 import { AboutSection } from '@/containers/about-section';
 import ProjectsSection from '@/containers/projects-section';
 import SkillsSection from '@/containers/skills-section';
+import { cn } from '@/lib/utils';
+import { Variable } from 'lucide-react';
+import Link from 'next/link';
 import { FaEnvelope } from 'react-icons/fa';
 
 export default function Home() {
@@ -22,13 +25,15 @@ export default function Home() {
             <div>
               <p className='text-primary font-semibold'>Get in touche</p>
               <p className='mb-3 '>Let&apos;s work together</p>
-              <Button className='px-5 text-xs gap-2'>
+              <Link
+                href={'mailto:ainou.abdelmounim@gmail.com'}
+                className={cn(buttonVariants({ variant: 'default' }))}>
                 <FaEnvelope /> Say Hello
-              </Button>
+              </Link>
             </div>
           </div>
           <div className='shadow-main border rounded-sm p-3 text-center flex flex-col h-64 items-center justify-center '>
-            <p className='text-primary font-semibold'>Commong Soon</p>
+            <p className='text-primary font-semibold'>Comming Soon</p>
           </div>
         </aside>
       </div>

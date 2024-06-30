@@ -46,12 +46,15 @@ const NavbarInvisible = ({ isVisible }: { isVisible: boolean }) => {
                 <Avatar size={45} />
               </div>
             </PopoverTrigger>
-            <PopoverContent className='w-80 p-0 overflow-hidden'>
-              <div className='bg-cover h-32 bg-center relative'>
-                <Avatar size={112} />
+            <PopoverContent
+              className='w-96 max-w-[90%]  p-0 overflow-hidden text-muted-foreground'
+              align='start'
+              alignOffset={0}>
+              <div className='bg-headerBg h-32 bg-center relative'>
+                <Avatar size={112} className='absolute top-16 left-5' />
               </div>
               <div className='mt-10 p-5'>
-                <p className='text-2xl text-gray-700 flex items-center gap-1'>
+                <p className='text-2xl text-gray-700 flex items-center gap-1 font-semibold dark:text-white'>
                   {' '}
                   Abdelmounim AINOU{' '}
                   <ShieldCheck size={30} className='text-blue-400' />{' '}

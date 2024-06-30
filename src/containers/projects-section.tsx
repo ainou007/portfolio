@@ -16,10 +16,9 @@ const ProjectsSection = async () => {
         icon={BiSave}
       />
       <p className='mb-5'>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem
-        similique quibusdam corporis in doloribus consequatur pariatur enim.
-        Voluptas exercitationem vel consequatur consequuntur numquam, saepe rem
-        minus sint architecto quam suscipit?
+        I have worked on various projects that demonstrate my skills in
+        front-end development and my ability to build functional, user-friendly
+        applications. Below are examples of some of these projects:
       </p>
 
       <div className='mt-10'>

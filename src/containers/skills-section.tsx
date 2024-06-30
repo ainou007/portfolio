@@ -15,10 +15,10 @@ const SkillsSection = async () => {
         icon={BiWrench}
       />
       <p className='mb-5'>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste hic
-        dignissimos rerum! Obcaecati porro neque, dolor dolorum facilis
-        consequatur ipsam exercitationem minus iusto magnam cum nihil? Ut
-        voluptates voluptatibus impedit.
+        With a strong foundation in front-end development, I bring a diverse
+        skill set to the table. My expertise lies in creating intuitive,
+        responsive, and visually appealing web applications. Below are some of
+        the key technologies and tools I excel in:
       </p>
       <div className='grid grid-cols-1 md:grid-cols-2 gap-2 mt-10'>
         {skillsList.map((skill) => {
