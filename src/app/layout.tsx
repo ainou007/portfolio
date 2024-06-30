@@ -18,7 +18,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en' className='scroll-smooth'>
-      <body className={cn(inter.className, 'text-muted-foreground relative')}>
+      <body
+        className={cn(
+          inter.className,
+          'text-muted-foreground relative scroll-pt-56'
+        )}>
         <ThemeProvider
           attribute='class'
           defaultTheme='system'

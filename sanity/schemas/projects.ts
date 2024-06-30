@@ -28,7 +28,7 @@ export default defineType({
       validation: (Rule) => [
         Rule.required().error('Description is required !'),
         Rule.min(10).error('Description must be greater than 10'),
-        Rule.max(1000).error('Description must be less than or equal 1000'),
+        Rule.max(2000).error('Description must be less than or equal 2000'),
       ],
     }),
 
