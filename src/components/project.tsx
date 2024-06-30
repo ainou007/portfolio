@@ -12,8 +12,6 @@ import { TProject } from '@/lib/types';
 import Image from 'next/image';
 import { urlForImage } from '../../sanity/lib/image';
 import Link from 'next/link';
-import { ImSpinner10 } from 'react-icons/im';
-import { FaRegCheckCircle } from 'react-icons/fa';
 
 type TProjectPropps = TProject & {
   direction: 'left' | 'right';
@@ -63,7 +61,9 @@ const Project = ({
                     'ring-2 ring-primary ring-offset-2'
                   : ''
                 )}>
-                <img
+                <Image
+                  width={1000}
+                  height={1000}
                   onClick={() => {
                     changeAtivceImage(index);
                   }}

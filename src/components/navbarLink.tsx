@@ -8,8 +8,8 @@ type TNavbarLink = {
   icon: IconType;
   label: string;
 };
-const goToEl = useGoto();
 const NavbarLink = ({ href, icon: Icon, label }: TNavbarLink) => {
+  const goToEl = useGoto();
   return (
     <Button
       onClick={() => {

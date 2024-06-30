@@ -21,7 +21,7 @@ export default function Home() {
           <div className='shadow-main border rounded-sm p-3 text-center flex flex-col h-64 items-center justify-center '>
             <div>
               <p className='text-primary font-semibold'>Get in touche</p>
-              <p className='mb-3 '>Let's work together</p>
+              <p className='mb-3 '>Let&apos;s work together</p>
               <Button className='px-5 text-xs gap-2'>
                 <FaEnvelope /> Say Hello
               </Button>

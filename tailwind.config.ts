@@ -74,10 +74,10 @@ const config = {
         'accordion-up': 'accordion-up 0.2s ease-out',
       },
       backgroundImage: {
-        header: "url('/jscode.jpg')",
+        headerBg: 'url("/jscode.jpg")',
       },
       boxShadow: {
-        main: ' rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;',
+        main: 'rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px',
       },
       screens: {
         xs: '480px',

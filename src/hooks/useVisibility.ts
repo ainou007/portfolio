@@ -27,7 +27,7 @@ export const useVisibiliy = (margin: number = 0) => {
         observer.unobserve(targetRef.current);
       }
     };
-  }, []);
+  }, [margin]);
 
   return { targetRef, isVisible };
 };

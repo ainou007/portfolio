@@ -9,7 +9,7 @@ const Header = () => {
 
   return (
     <header>
-      <div className='bg-center bg-header bg-cover bg-no-repeat h-[450px] '></div>
+      <div className='bg-center bg-headerBg bg-cover bg-no-repeat h-[450px] '></div>
       <Navbar />
       <div ref={targetRef}></div>
       <NavbarInvisible isVisible={isVisible} />
