@@ -15,8 +15,10 @@ import { useEffect, useRef, useState } from 'react';
 import useOnClickOutside from 'use-onclickoutside';
 import NavbarLink from './navbarLink';
 import Avatar from './avatar';
+import { useGoto } from '@/hooks/useGoto';
 
 const NavbarInvisible = ({ isVisible }: { isVisible: boolean }) => {
+  const goToEl = useGoto();
   const ref = useRef(null);
   const [isPopoverOpen, setIsPopoverOpen] = useState(false);
   useOnClickOutside(ref, () => {
@@ -76,10 +78,20 @@ const NavbarInvisible = ({ isVisible }: { isVisible: boolean }) => {
                   </ul>
                 </div>
                 <div className='flex gap-2 mt-5'>
-                  <Button className='flex-1'>
+                  <Button
+                    onClick={() => {
+                      console.log('hello');
+                      // goToEl('projects');
+                    }}
+                    className='flex-1'>
                     My works <MdKeyboardDoubleArrowRight />
                   </Button>
-                  <Button className='flex-1' variant={'outline'}>
+                  <Button
+                    onClick={() => {
+                      console.log('Download');
+                    }}
+                    className='flex-1'
+                    variant={'outline'}>
                     Download cv <MdOutlineFileDownload />
                   </Button>
                 </div>

@@ -3,7 +3,6 @@ import { navLinks } from '@/app/constants/nav-links';
 import { technologies } from '@/app/constants/technologies';
 import { ModeToggle } from '@/components/mode-toggle';
 import { ShieldCheck } from 'lucide-react';
-import Image from 'next/image';
 import NavbarLink from './navbarLink';
 import Avatar from './avatar';
 

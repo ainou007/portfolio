@@ -1,7 +1,9 @@
+'use client';
 import { socialMedia } from '@/app/constants/socialMedia';
 import Author from '@/components/author';
 import Section from '@/components/section';
 import { Button } from '@/components/ui/button';
+import { useGoto } from '@/hooks/useGoto';
 import { BiUserPin } from 'react-icons/bi';
 import {
   MdKeyboardDoubleArrowRight,
@@ -9,6 +11,8 @@ import {
 } from 'react-icons/md';
 
 export const AboutSection = () => {
+  const goToEl = useGoto();
+
   return (
     <Section id='about'>
       <Author
@@ -38,7 +42,10 @@ export const AboutSection = () => {
         })}
       </ul>
       <div className='flex flex-col xs:flex-row gap-2 mt-5'>
-        <Button>
+        <Button
+          onClick={() => {
+            goToEl('projects');
+          }}>
           My works <MdKeyboardDoubleArrowRight />
         </Button>
         <Button variant={'outline'}>
