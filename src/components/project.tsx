@@ -85,27 +85,25 @@ const Project = ({
         <Separator className='my-3' />
         <div className='space-y-2'>
           <div className='text-sm flex gap-5 '>
-            <div className='flex gap-1 items-center'>
+            <div className='flex gap-2 items-center'>
               <GrCompliance />
-              Status
+              {isCompleted ? 'Completed' : 'In Progrsse'}
             </div>
-            <div>{isCompleted ? 'Completed' : 'In Progrsse'}</div>
           </div>
           <div className='text-sm grid grid-cols-2 '>
-            <div className='flex gap-1 items-center'>
-              <FiLayout /> Layout
+            <div className='flex gap-2 items-center'>
+              <FiLayout /> {isResponsive ? 'responsive' : 'desktop only'}
             </div>
-            <div>{isResponsive ? 'responsive' : 'desktop only'}</div>
+            <div></div>
           </div>
           <div className='text-sm grid grid-cols-1 '>
-            <div className='flex gap-1 items-center mb-1'>
+            <div className='flex gap-2 items-center mb-1'>
               <BsTags />
-              Tags
-            </div>
-            <div className='flex gap-1 flex-wrap'>
-              {tags.map((tag, index) => (
-                <Badge key={index}>{tag}</Badge>
-              ))}
+              <div className='flex gap-1 flex-wrap'>
+                {tags.map((tag, index) => (
+                  <Badge key={index}>{tag}</Badge>
+                ))}
+              </div>
             </div>
           </div>
         </div>
