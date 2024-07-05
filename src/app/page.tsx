@@ -1,13 +1,13 @@
 import Footer from '@/components/footer';
 import Header from '@/components/header';
-import { Button, buttonVariants } from '@/components/ui/button';
+import { buttonVariants } from '@/components/ui/button';
 import { AboutSection } from '@/containers/about-section';
 import ProjectsSection from '@/containers/projects-section';
 import SkillsSection from '@/containers/skills-section';
 import { cn } from '@/lib/utils';
-import { Variable } from 'lucide-react';
 import Link from 'next/link';
 import { FaEnvelope } from 'react-icons/fa';
+export const revalidate = 0; // revalidate at most every hour
 
 export default function Home() {
   return (
