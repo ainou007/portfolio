@@ -5,6 +5,7 @@ import Section from '@/components/section';
 import { Button } from '@/components/ui/button';
 import { useGoto } from '@/hooks/useGoto';
 import { BiUserPin } from 'react-icons/bi';
+import { FiChevronsRight, FiDownloadCloud } from 'react-icons/fi';
 import {
   MdKeyboardDoubleArrowRight,
   MdOutlineFileDownload,
@@ -46,10 +47,10 @@ export const AboutSection = () => {
           onClick={() => {
             goToEl('projects');
           }}>
-          My works <MdKeyboardDoubleArrowRight />
+          My works <FiChevronsRight />
         </Button>
         <Button variant={'outline'}>
-          Download cv <MdOutlineFileDownload />
+          Download Resume <FiDownloadCloud />
         </Button>
       </div>
     </Section>
